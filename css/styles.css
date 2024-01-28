@@ -1,0 +1,259 @@
+/* -----------------
+        Tabla de contenidos:
+        --------------------
+        1. Fuente ................ 11
+        2. Variables ............. 17
+        3. Estilos generales ..... 32
+        -------------------- 
+        */
+
+/* Reset Personalizado */
+* {
+	min-width: 0;
+	font: inherit;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
+body {
+	margin: 0;
+	min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--primary-b);
+}
+
+p {
+	text-wrap: pretty;
+}
+
+a {
+	text-decoration: none;
+	color: var(--lightGrayishBlue)
+}
+
+/* ----- Fuente ----- */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+/* ----- Variables ----- */
+
+:root {
+	--primary-b: hsl(217, 19%, 35%);
+	--secondary-b: hsl(214, 17%, 51%);
+	--grayishBlue: hsl(212, 23%, 69%);
+	--lightGrayishBlue: hsl(210, 46%, 95%);
+	--font-f: 'Manrope', sans-serif;
+}
+
+/* ----------------------------- */
+/* ----- Estilos generales ----- */
+/* ----------------------------- */
+
+body {
+	font-family: var(--font-f);
+	display: grid;
+	place-items: center;
+	background-color: var(--lightGrayishBlue);
+}
+
+.card {
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60dvw;
+	height: 40dvh;
+	/* border: 1px solid red; */
+	border-radius: 15px;
+	/* overflow: hidden; */
+}
+
+.card img {
+	width: 35%;
+	height: 100%;
+	object-fit: cover;
+	object-position: left;
+	border-radius: 15px 0px 0px 15px;
+}
+
+.card .content {
+	width: 65%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.card .content h2,
+.card .content p {
+	padding: 0 40px;
+	line-height: 1.9rem;
+	margin-bottom: 5px;
+}
+
+.card .content h2 {
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.card .content p {
+	color: var(--secondary-b);
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.card .options {
+	display: flex;
+	align-items: center;
+	height: 60px;
+	width: 100%;
+	padding: 0 40px;
+	margin-top: 10px;
+	position: relative;
+
+}
+
+.card .options .user {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.content .options .user__data {
+	margin: 10px 0px 0px 20px;
+}
+
+.content .options .user__data h3,
+.content .options .user__data p {
+	margin: 0;
+	padding: 0;
+}
+
+.options .shared {
+	margin-left: auto;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: var(--lightGrayishBlue);
+	display: grid;
+	place-content: center;
+	color: var(--secondary-b);
+	font-size: 20px;
+	cursor: pointer;
+	z-index: 9;
+}
+
+.options .shared:hover {
+	background-color: var(--secondary-b);
+	color: white;
+}
+
+.tooltip {
+	position: absolute;
+	top: -60px;
+	right: -6dvw;
+	background-color: var(--primary-b);
+	color: var(--lightGrayishBlue);
+	z-index: 1;
+	border-radius: 5px;
+	padding: 15px 30px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+.tooltip .tooltip__content {
+	width: 15dvw;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 5px;
+
+}
+
+
+.tooltip::after {
+	content: "";
+	display: block;
+	border-top: 20px solid var(--primary-b);
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	position: absolute;
+	bottom: -10px;
+	left: calc(50% - 20px);
+}
+
+.oculto {
+	display: none;
+}
+
+.tooltip .tooltip__content span {
+	display: block;
+	font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+	.card {
+		width: 80dvw;
+		height: auto;
+		flex-direction: column;
+	}
+
+	.card img {
+		width: 100%;
+		height: 350px;
+		border-radius: 15px 15px 0px 0px;
+	}
+
+	.card .content {
+		width: 100%;
+		padding: 10px;
+	}
+
+	.card .content p {
+		font-size: 20px;
+		margin-bottom: 30px;
+	}
+
+	.tooltip {
+		top: -10px;
+		left: -10px;
+		right: -10px;
+		bottom: -10px;
+		border-radius: 0px 0px 15px 15px;
+	}
+
+	.tooltip::after {
+		display: none;
+	}
+
+	.tooltip .tooltip__content {
+		width: 60%;
+		font-size: 20px;
+	}
+
+	.content .options .user__data p {
+		font-size: 13px;
+	}
+
+	.tooltip .tooltip__content span {
+		font-size: 20px;
+	}
+}
